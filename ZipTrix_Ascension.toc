@@ -1,0 +1,8 @@
+## Interface: 30300
+## Title: ZipTrix_Ascension
+## Notes: Fixes conflict between MoveAnything and ElvUI for Ascension frames.
+## Author: ZipTrix
+## Version: 1.0
+## SavedVariables: ZipTrix_Ascension_DB
+
+ZipTrix_Ascension.lua

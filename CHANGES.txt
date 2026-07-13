@@ -1,0 +1,7 @@
+2026-07-13
+- Initial implementation of the ZipTrix addon.
+- Added "MoveAnything and ElvUI fix" to resolve Character Frame dragging issues when both addons are loaded.
+- Moved the configuration UI from a standalone floating window into the standard World of Warcraft Interface Options (AddOns tab).
+- Added UI placeholders for upcoming "Dark Mode" and "Branns GTFO" features.
+- Added a "Create ZipMog Macro" button that dynamically generates a macro to equip/learn all bag items for transmog.
+- Added logic to automatically place the generated ZipMog macro onto the player's next available action bar slot.
