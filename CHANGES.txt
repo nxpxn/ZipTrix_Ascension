@@ -5,3 +5,7 @@
 - Added UI placeholders for upcoming "Dark Mode" and "Branns GTFO" features.
 - Added a "Create ZipMog Macro" button that dynamically generates a macro to equip/learn all bag items for transmog.
 - Added logic to automatically place the generated ZipMog macro onto the player's next available action bar slot.
+
+2026-07-15
+- Reviewed libraries and confirmed that Ace3 libraries can be removed as they are not used. Retained LibStub, CallbackHandler-1.0, and LibSharedMedia-3.0.
+- Registered all fonts in the `fonts` folder using LibSharedMedia-3.0 so they can be selected anywhere custom fonts are supported.

@@ -1,5 +1,38 @@
 local addonName, addonTable = ...
 
+local LSM = LibStub and LibStub("LibSharedMedia-3.0", true)
+if LSM then
+    LSM:Register("font", "Atkinson Hyperlegible Next Bold", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-Bold.ttf]])
+    LSM:Register("font", "Atkinson Hyperlegible Next Bold Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-BoldItalic.ttf]])
+    LSM:Register("font", "Atkinson Hyperlegible Next Extra Bold", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-ExtraBold.ttf]])
+    LSM:Register("font", "Atkinson Hyperlegible Next Extra Bold Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-ExtraBoldItalic.ttf]])
+    LSM:Register("font", "Atkinson Hyperlegible Next Extra Light", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-ExtraLight.ttf]])
+    LSM:Register("font", "Atkinson Hyperlegible Next Extra Light Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-ExtraLightItalic.ttf]])
+    LSM:Register("font", "Atkinson Hyperlegible Next Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-Italic.ttf]])
+    LSM:Register("font", "Atkinson Hyperlegible Next Light", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-Light.ttf]])
+    LSM:Register("font", "Atkinson Hyperlegible Next Light Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-LightItalic.ttf]])
+    LSM:Register("font", "Atkinson Hyperlegible Next Medium", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-Medium.ttf]])
+    LSM:Register("font", "Atkinson Hyperlegible Next Medium Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-MediumItalic.ttf]])
+    LSM:Register("font", "Atkinson Hyperlegible Next Regular", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-Regular.ttf]])
+    LSM:Register("font", "Atkinson Hyperlegible Next Semi Bold", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-SemiBold.ttf]])
+    LSM:Register("font", "Atkinson Hyperlegible Next Semi Bold Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\AtkinsonHyperlegibleNext-SemiBoldItalic.ttf]])
+    LSM:Register("font", "Expressway", [[Interface\AddOns\ZipTrix_Ascension\fonts\Expressway.ttf]])
+    LSM:Register("font", "SF Atarian System", [[Interface\AddOns\ZipTrix_Ascension\fonts\SFAtarianSystem.ttf]])
+    LSM:Register("font", "SF Atarian System Bold", [[Interface\AddOns\ZipTrix_Ascension\fonts\SFAtarianSystemBold.ttf]])
+    LSM:Register("font", "SF Atarian System Bold Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\SFAtarianSystemBoldItalic.ttf]])
+    LSM:Register("font", "SF Atarian System Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\SFAtarianSystemItalic.ttf]])
+    LSM:Register("font", "Zilla Slab Bold", [[Interface\AddOns\ZipTrix_Ascension\fonts\ZillaSlab-Bold.ttf]])
+    LSM:Register("font", "Zilla Slab Bold Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\ZillaSlab-BoldItalic.ttf]])
+    LSM:Register("font", "Zilla Slab Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\ZillaSlab-Italic.ttf]])
+    LSM:Register("font", "Zilla Slab Light", [[Interface\AddOns\ZipTrix_Ascension\fonts\ZillaSlab-Light.ttf]])
+    LSM:Register("font", "Zilla Slab Light Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\ZillaSlab-LightItalic.ttf]])
+    LSM:Register("font", "Zilla Slab Medium", [[Interface\AddOns\ZipTrix_Ascension\fonts\ZillaSlab-Medium.ttf]])
+    LSM:Register("font", "Zilla Slab Medium Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\ZillaSlab-MediumItalic.ttf]])
+    LSM:Register("font", "Zilla Slab Regular", [[Interface\AddOns\ZipTrix_Ascension\fonts\ZillaSlab-Regular.ttf]])
+    LSM:Register("font", "Zilla Slab Semi Bold", [[Interface\AddOns\ZipTrix_Ascension\fonts\ZillaSlab-SemiBold.ttf]])
+    LSM:Register("font", "Zilla Slab Semi Bold Italic", [[Interface\AddOns\ZipTrix_Ascension\fonts\ZillaSlab-SemiBoldItalic.ttf]])
+    LSM:Register("font", "Epic Fusion", [[Interface\AddOns\ZipTrix_Ascension\fonts\epic-fusion.ttf]])
+end
 -- Default saved variables
 ZipTrix_Ascension_DB = ZipTrix_Ascension_DB or { fixEnabled = false }
 
@@ -17,16 +50,9 @@ cb:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -16)
 _G[cb:GetName().."Text"]:SetText("MoveAnything and ElvUI fix")
 _G[cb:GetName().."Text"]:SetFontObject("GameFontHighlight")
 
--- Dark Mode Option
-local cbDarkMode = CreateFrame("CheckButton", "ZipTrixDarkModeToggler", frame, "ChatConfigCheckButtonTemplate")
-cbDarkMode:SetPoint("TOPLEFT", cb, "BOTTOMLEFT", 0, -8)
-_G[cbDarkMode:GetName().."Text"]:SetText("Dark Mode * Comming Soon!")
-_G[cbDarkMode:GetName().."Text"]:SetFontObject("GameFontHighlight")
-cbDarkMode:Disable()
-
 -- Branns GTFO Option
 local cbBrann = CreateFrame("CheckButton", "ZipTrixBrannToggler", frame, "ChatConfigCheckButtonTemplate")
-cbBrann:SetPoint("TOPLEFT", cbDarkMode, "BOTTOMLEFT", 0, -8)
+cbBrann:SetPoint("TOPLEFT", cb, "BOTTOMLEFT", 0, -8)
 _G[cbBrann:GetName().."Text"]:SetText("Branns GTFO * Comming Soon!")
 _G[cbBrann:GetName().."Text"]:SetFontObject("GameFontHighlight")
 cbBrann:Disable()
@@ -68,6 +94,15 @@ btnMacro:SetScript("OnClick", function()
         end
     end
 end)
+
+-- Other Addons Section
+local addonsTitle = frame:CreateFontString(nil, "ARTWORK", "GameFontNormal")
+addonsTitle:SetPoint("TOPLEFT", btnMacro, "BOTTOMLEFT", 0, -32)
+addonsTitle:SetText("Other Ascension Addons Available (BackPorts):")
+
+local addonsList = frame:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
+addonsList:SetPoint("TOPLEFT", addonsTitle, "BOTTOMLEFT", 8, -8)
+addonsList:SetText("• DarkMode\n• DialogKey_Numy")
 
 local function ApplyCharacterFrameFix()
     if ZipTrix_Ascension_DB.fixEnabled then

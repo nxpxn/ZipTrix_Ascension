@@ -5,4 +5,8 @@
 ## Version: 1.0
 ## SavedVariables: ZipTrix_Ascension_DB
 
+libs\LibStub\LibStub.lua
+libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+libs\LibSharedMedia-3.0\lib.xml
+
 ZipTrix_Ascension.lua
