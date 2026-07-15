@@ -1,7 +1,7 @@
 # ZipTrix (Ascension)
 
 <p align="center">
-  <img src="media/icon.jpeg" width="128" height="128" alt="ZipTrix Icon">
+  <img src="media/cosmiclogo2_ascension.png" width="128" height="128" alt="ZipTrix Icon">
 </p>
 
 ## Overview
@@ -34,7 +34,7 @@ git clone https://github.com/nxpxn/ZipTrix_Ascension.git
 ## Primary Features
 - **MoveAnything and ElvUI Fix:** Resolves conflicts between ElvUI and MoveAnything that can lock the Ascension Character Frame. When enabled, this fix forces the Ascension Character Frame to be movable again.
 - **ZipMog Macro Creator:** A built-in utility button that automatically generates a global macro called `ZipMog`. This macro is designed to quickly equip all equippable items in your bags, making it much faster to learn new transmog appearances. The addon also automatically places the macro on your next available action bar slot.
-- **Upcoming Features:** Placeholders have been added for upcoming features such as "Dark Mode" and "Branns GTFO".
+- **Upcoming Features:** Placeholders have been added for upcoming features such as "Branns GTFO".
 
 ## Configuration
 You can access the ZipTrix configuration panel by opening the standard World of Warcraft Interface Options and navigating to the AddOns tab. From there, you can toggle the Character Frame fix and generate the ZipMog macro.
