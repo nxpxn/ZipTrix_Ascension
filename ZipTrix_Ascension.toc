@@ -10,3 +10,4 @@ libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
 libs\LibSharedMedia-3.0\lib.xml
 
 ZipTrix_Ascension.lua
+BagnonDrawer.lua

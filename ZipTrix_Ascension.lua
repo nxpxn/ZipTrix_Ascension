@@ -95,9 +95,28 @@ btnMacro:SetScript("OnClick", function()
     end
 end)
 
+-- Bagnon Drawer Option
+local cbDrawer = CreateFrame("CheckButton", "ZipTrixBagnonDrawerToggler", frame, "ChatConfigCheckButtonTemplate")
+cbDrawer:SetPoint("TOPLEFT", btnMacro, "BOTTOMLEFT", 0, -16)
+_G[cbDrawer:GetName().."Text"]:SetText("Enable Bagnon Keyword Filters Drawer")
+_G[cbDrawer:GetName().."Text"]:SetFontObject("GameFontHighlight")
+
+cbDrawer:SetScript("OnClick", function(self)
+    if not ZipTrix_Ascension_DB.bagnonDrawer then return end
+    ZipTrix_Ascension_DB.bagnonDrawer.enabled = self:GetChecked()
+    if ZipTrixBagnonDrawer and BagnonFrameinventory then
+        if ZipTrix_Ascension_DB.bagnonDrawer.enabled and BagnonFrameinventory:IsShown() then
+            ZipTrixBagnonDrawer:Update()
+            ZipTrixBagnonDrawer:Show()
+        else
+            ZipTrixBagnonDrawer:Hide()
+        end
+    end
+end)
+
 -- Other Addons Section
 local addonsTitle = frame:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-addonsTitle:SetPoint("TOPLEFT", btnMacro, "BOTTOMLEFT", 0, -32)
+addonsTitle:SetPoint("TOPLEFT", cbDrawer, "BOTTOMLEFT", 0, -32)
 addonsTitle:SetText("Other Ascension Addons Available (BackPorts):")
 
 local addonsList = frame:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
@@ -159,6 +178,9 @@ eventFrame:SetScript("OnEvent", function(self, event, arg1)
         end
         cb:SetChecked(ZipTrix_Ascension_DB.fixEnabled)
     elseif event == "PLAYER_LOGIN" then
+        if ZipTrix_Ascension_DB.bagnonDrawer then
+            cbDrawer:SetChecked(ZipTrix_Ascension_DB.bagnonDrawer.enabled)
+        end
         local maLoaded = IsAddOnLoaded("MoveAnything")
         local elvuiLoaded = IsAddOnLoaded("ElvUI")
         
@@ -171,6 +193,47 @@ eventFrame:SetScript("OnEvent", function(self, event, arg1)
             if ZipTrix_Ascension_DB.fixEnabled then
                 ApplyCharacterFrameFix()
             end
+        end
+        
+        -- Register custom search terms for Bagnon (LibItemSearch-1.0)
+        local ItemSearch = LibStub and LibStub("LibItemSearch-1.0", true)
+        if ItemSearch then
+            ItemSearch:RegisterTypedSearch{
+                id = 'ziptrix_ascension_search',
+                isSearch = function(self, search)
+                    if search == "worldforged" or search == "wf" or search == "mythic" or search == "fel-forged" or search == "felforged" or search == "awoken" then
+                        return search
+                    end
+                end,
+                findItem = function(self, itemLink, search)
+                    if not itemLink then return false end
+                    local tooltipScanner = _G['LibItemSearchTooltipScanner'] or CreateFrame('GameTooltip', 'LibItemSearchTooltipScanner', UIParent, 'GameTooltipTemplate')
+                    tooltipScanner:SetOwner(UIParent, 'ANCHOR_NONE')
+                    tooltipScanner:SetHyperlink(itemLink)
+                    
+                    local matchStr = ""
+                    if search == "worldforged" or search == "wf" then
+                        matchStr = "Worldforged"
+                    elseif search == "mythic" then
+                        matchStr = "Mythic"
+                    elseif search == "fel-forged" or search == "felforged" then
+                        matchStr = "Fel-Forged"
+                    elseif search == "awoken" then
+                        matchStr = "Awoken"
+                    end
+                    
+                    local result = false
+                    for i = 1, tooltipScanner:NumLines() do
+                        local text = _G[tooltipScanner:GetName() .. 'TextLeft' .. i]:GetText()
+                        if text and string.find(text, matchStr) then
+                            result = true
+                            break
+                        end
+                    end
+                    tooltipScanner:Hide()
+                    return result
+                end
+            }
         end
     end
 end)
