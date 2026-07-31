@@ -32,6 +32,7 @@ git clone https://github.com/nxpxn/ZipTrix_Ascension.git
 ---
 
 ## Primary Features
+- **Bagnon Custom Search Filters & Drawer:** Includes a custom drawer for Bagnon with recent search history and pinned terms. Supports custom Ascension search filters such as: `worldforged`, `wf`, `mythic`, `fel-forged`, `felforged`, `awoken`, `realm bound`, `realmbound`, `rb`.
 - **MoveAnything and ElvUI Fix:** Resolves conflicts between ElvUI and MoveAnything that can lock the Ascension Character Frame. When enabled, this fix forces the Ascension Character Frame to be movable again.
 - **ZipMog Macro Creator:** A built-in utility button that automatically generates a global macro called `ZipMog`. This macro is designed to quickly equip all equippable items in your bags, making it much faster to learn new transmog appearances. The addon also automatically places the macro on your next available action bar slot.
 - **Upcoming Features:** Placeholders have been added for upcoming features such as "Branns GTFO".

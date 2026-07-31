@@ -1,3 +1,6 @@
+2026-07-31
+- Added custom search filters for "Realm Bound" items (keywords: realm bound, realmbound, rb) for inventory addons that use LibItemSearch-1.0 (such as Bagnon).
+
 2026-07-22
 - Added custom Project Ascension search filters (worldforged, wf, mythic, fel-forged, felforged, awoken, titanforged) for inventory addons that use LibItemSearch-1.0 (such as Bagnon).
 - Implemented a new Bagnon Keyword Filters drawer that attaches directly to the Bagnon inventory frame.

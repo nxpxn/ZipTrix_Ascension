@@ -201,7 +201,7 @@ eventFrame:SetScript("OnEvent", function(self, event, arg1)
             ItemSearch:RegisterTypedSearch{
                 id = 'ziptrix_ascension_search',
                 isSearch = function(self, search)
-                    if search == "worldforged" or search == "wf" or search == "mythic" or search == "fel-forged" or search == "felforged" or search == "awoken" then
+                    if search == "worldforged" or search == "wf" or search == "mythic" or search == "fel-forged" or search == "felforged" or search == "awoken" or search == "realm bound" or search == "realmbound" or search == "rb" then
                         return search
                     end
                 end,
@@ -220,6 +220,8 @@ eventFrame:SetScript("OnEvent", function(self, event, arg1)
                         matchStr = "Fel-Forged"
                     elseif search == "awoken" then
                         matchStr = "Awoken"
+                    elseif search == "realm bound" or search == "realmbound" or search == "rb" then
+                        matchStr = "Realm Bound"
                     end
                     
                     local result = false
